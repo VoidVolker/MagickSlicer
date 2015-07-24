@@ -9,4 +9,4 @@ Usage:
     ./magick-slicer.sh "<source file>" <tile_w> <tile_h> <step>
 
 Dependencies:
-* [ImageMagick](http://www.imagemagick.org/script/index.php)
+* [ImageMagick](http://www.imagemagick.org/script/index.php) - convert, identify
