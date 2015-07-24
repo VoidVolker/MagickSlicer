@@ -10,3 +10,7 @@ Usage:
 
 Dependencies:
 * [ImageMagick](http://www.imagemagick.org/script/index.php) - convert, identify
+
+OS support:
+* Linux
+* OSX
