@@ -1,0 +1,2 @@
+# MagickSlicer
+Map tiles generator
