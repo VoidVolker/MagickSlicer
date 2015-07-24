@@ -31,7 +31,7 @@ gravity='NorthWest'     # Image positioning (from this option depends, which til
 extent=false            # Extent option (false - tiles be cropped, true - will be added transparent color to get all tiles of full size)
 scale64=false
 
-# Options omly for slicerB
+# Options only for slicerB
 upScale=false           # Maximum zoom: bigger or less then image. False - will not create upscaled image for maximum zoom; true - last zoom be equal or grater, then image.
 horizontal=true         # Type of positioning of image: horizontal or vertical.
 zoomReverse=false       # false: maxZoom=100%; true: minZoom=100%
