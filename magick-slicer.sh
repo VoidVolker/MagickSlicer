@@ -2,7 +2,7 @@
 version="0.001"
 date="24/07/2015"
 if [ $# -le 3 ]; then
-    echo "Usage: imageSlicer.sh \"<source file>\" <tile_w> <tile_h> <step>"
+    echo "Usage: magick-slicer.sh \"<source file>\" <tile_w> <tile_h> <step>"
     echo
     echo "    Map tiles generator. License: MIT. $date"
     echo "    Version: $version"
