@@ -6,7 +6,7 @@ Map tiles generator
 
 Usage: 
 
-    ./imageSlicer.sh "<source file>" <tile_w> <tile_h> <step>
+    ./magick-slicer.sh "<source file>" <tile_w> <tile_h> <step>
 
 Dependencies:
 * [ImageMagick](http://www.imagemagick.org/script/index.php)
