@@ -292,6 +292,10 @@ vHelp(){
     then
         echo "        User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)"
         echo "        Also, exists short commands for each level: -v0 -v1 -v2 -v3"
+        echo
+        echo "        Default:  0"
+        echo "        Type:     logic switch"
+        echo
     fi
 }
 
