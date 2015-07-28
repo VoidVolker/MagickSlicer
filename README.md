@@ -58,7 +58,7 @@ Type:     str
 
 Output directory for result.
 
-Default:  ./sliceResult
+Default:  same as source
 
 Type:     str
 
