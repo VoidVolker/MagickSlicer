@@ -6,7 +6,8 @@ date="28/07/2015"
 # resultExt='png'
 resultExt=''
 resizeFilter='' # http://www.imagemagick.org/Usage/filter/
-resultDir='./sliceResult'
+# resultDir='./sliceResult'
+resultDir=''
 # Selector fo slicer: A or B
 scaleFromImage=true     # Type of scaling: if true - scale calculates from image size to down (slicer A), if false - image scale starts from tile size and grow up (slicer B)
 gravity='NorthWest'     # Image positioning (from this option depends, which tiles sides can be cropped, if it not full size). Choices include: 'NorthWest', 'North', 'NorthEast', 'West', 'Center', 'East', 'SouthWest', 'South', 'SouthEast'. Use -list gravity to get a complete list of -gravity settings available in your ImageMagick installation.
@@ -98,7 +99,7 @@ oHelp(){
     then
         echo "        Output directory for result."
         echo
-        echo "        Default:  ./sliceResult"
+        echo "        Default:  same as source"
         echo "        Type:     str"
         echo
     fi
@@ -554,10 +555,19 @@ then
 fi
 
 # Set extension
+fullName=$(basename "$imageSource")
+fileBase="${fullName%.*}"
+fileExt="${fullName%.*}"
+
 if $ExtNotDefined
 then
-    fname=$(basename "$imageSource")
-    resultExt="${fname##*.}"
+    resultExt="$fileExt"
+fi
+
+# Set out name
+if $ResDirNotDefined
+then
+    resultDir="$fileBase"
 fi
 
 # ———————————————————————————————————————————————————————————————————————————————————
@@ -847,9 +857,10 @@ mainScale(){ # min zoom = tile width
 
 setDziFormat(){
     local dziFileName="${resultDir}.dzi"
+    resultDir="${resultDir}_files"
     tileH=$tileW
     echo '<?xml version="1.0"?>' > "$dziFileName"
-    echo "<Image TileSize=\"${tileW}\" Overlap=\"2\" Format=\"${resultExt}\" xmlns=\"http://schemas.microsoft.com/deepzoom/2008\">" >> "$dziFileName"
+    echo "<Image TileSize=\"${tileW}\" Overlap=\"0\" Format=\"${resultExt}\" xmlns=\"http://schemas.microsoft.com/deepzoom/2008\">" >> "$dziFileName"
     echo "<Size Width=\"${imageW}\" Height=\"${imageH}\"/>" >> "$dziFileName"
     echo '</Image>' >> "$dziFileName"
     # <?xml version="1.0"?>
@@ -871,18 +882,19 @@ init(){
         echo "You get infinity loop. Minimum step value = 101% (101)"
         exit 1
     fi
-
-    rm -rf $resultDir   # removing old results
-    mkdir -p $resultDir # creating new results folder
-
     # Getting image sizes
     imageW=`getImgW $imageSource`
     imageH=`getImgH $imageSource`
 
     # Set options for selected format
     setFormat
+
     # Set scale
     setScale
+
+    rm -rf $resultDir   # removing old results
+    mkdir -p $resultDir # creating new results folder
+
 }
 
 # ———————————————————————————————————————————————————————————————————————————————————
