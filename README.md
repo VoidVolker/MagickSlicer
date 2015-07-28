@@ -45,6 +45,7 @@ User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+i
 Also, exists short commands for each level: -v0 -v1 -v2 -v3
 
 Default:  0
+
 Type:     logic switch
 
 ### [ -i, --in <file_path> ]
