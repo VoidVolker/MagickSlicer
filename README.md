@@ -154,7 +154,8 @@ Type:     logic switch
 
 ### [ -c, --scaleover ]
 
-Create upscaled image for maximum zoom (last zoom be equal or grater, then image). zoom[i-1]_size < source_image_size < zoom[i]_size
+Create upscaled image for maximum zoom (last zoom be equal or grater, then image).
+`zoom[i-1]_size < source_image_size < zoom[i]_size`
 Work only in slice B mode. In other cases ignored.
 
 Default:  false
