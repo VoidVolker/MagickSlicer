@@ -91,7 +91,7 @@ Type:     int
 
 Zoom step value. Formula:
 
-`(1) image_size[i+1] = image_size[i] * 100 / step`
+`image_size[i+1] = image_size[i] * 100 / step` (1)
 
 ```
 200 -> 200% or 2x    -> 100% * 100 / 200 = 50%
@@ -157,7 +157,11 @@ Type:     logic switch
 ### [ -c, --scaleover ]
 
 Create upscaled image for maximum zoom (last zoom be equal or grater, then image).
-`zoom[i-1]_size < source_image_size < zoom[i]_size`
+````
+zoom[i-1]_size < source_image_size < zoom[i]_size
+````
+`zoom[i]_size` - this is upscaled image.
+
 Work only in slice B mode. In other cases ignored.
 
 Default:  false
@@ -167,6 +171,7 @@ Type:     logic switch
 ### [ -r, --horizontal ]
 
 Tiles divide image on horizontal side without remains. On this side tiles will not be croped.
+
 Work only in slice B mode. In other cases ignored.
 
 ```
@@ -184,6 +189,7 @@ Type:     logic switch
 ### [ -t, --vertical ]
 
 Tiles divide image on vertical side without remains. On this side tiles will not be croped.
+
 Work only in slice B mode. In other cases ignored.
 
 ```
