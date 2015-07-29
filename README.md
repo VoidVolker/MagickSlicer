@@ -20,7 +20,7 @@ DZI and custom map tiles generator.
     magick-slicer.sh /source/image [options] [result/dir]
     magick-slicer.sh /source/image [result/dir] [options]
 
-Use quotes for path or options with spaces. First unknown string interpreting as source image, if it not defined. Second unknown string is interpreting as result path, if it not defined. Also, for source and result you can use options '-i' and '-o'. As result you will get sliced image in default format (basic DZI).
+Use quotes for path or options with spaces. First unknown string interpreting as source image, if it not defined. Second unknown string is interpreting as result path, if it not defined. Also, for source and result you can use options `-i` and `-o`. As result you will get sliced image in default format (basic DZI).
 
 ---
 
@@ -105,9 +105,9 @@ Default:  200
 
 Type:     int
 
-### [ -p, --options 'imagemagick options string']
+### [ -p, --options 'imagemagick options string' ]
 
-Specifies additional imagemagick options for 'convert'.
+Specifies additional imagemagick options for `convert`.
 
 Type:     str
 
