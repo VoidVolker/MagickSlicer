@@ -36,8 +36,6 @@ Type:     str
 
 Show full help for all options.
 
-Type:     str
-
 ---
 
 ## Options list
@@ -49,7 +47,7 @@ Also, exists short commands for each level: -v0 -v1 -v2 -v3
 
 Default:  0
 
-Type:     logic switch
+Type:     int
 
 ### [ -i, --in <file_path> ]
 
@@ -116,7 +114,8 @@ Type:     str
 ### [ -g, --gravity <type> ]
 
 Types: `NorthWest North NorthEast West Center East SouthWest South SouthEast`
-The direction you choose specifies where to position of cuts start on image. Use -list gravity to get a complete list of -gravity settings available in your ImageMagick installation.
+
+The direction you choose specifies where to position image, when it will be sliced. Use `-list gravity` to get a complete list of `-gravity` settings available in your ImageMagick installation.
 http://www.imagemagick.org/script/command-line-options.php#gravity
 
 Default:  NorthWest
@@ -141,7 +140,7 @@ Type:     logic switch
 
 ### [ -a, --slicea ]
 
-Type of slicing - slice A. Image scale starts from image size to down. Inverts option '--scliceb'.
+Type of slicing - slice A. Image scale starts from image size to down. Inverts option `--scliceb`.
 
 Default:  true
 
@@ -149,7 +148,7 @@ Type:     logic switch
 
 ### [ -b, --sliceb ]
 
-Type of slicing - slice B. Image scale starts from tile size and grow up. Inverts option '--slicea'.
+Type of slicing - slice B. Image scale starts from tile size and grow up. Inverts option `--slicea`.
 
 Default:  false
 
