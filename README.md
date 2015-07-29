@@ -40,7 +40,7 @@ Show full help for all options.
 
 ## Options list
 
-### [ -v, --verbose <level> ]
+### [ -v, --verbose &lt;level&gt; ]
 
 User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)
 Also, exists short commands for each level: -v0 -v1 -v2 -v3
@@ -49,13 +49,13 @@ Default:  0
 
 Type:     int
 
-### [ -i, --in <file_path> ]
+### [ -i, --in &lt;file_path&gt; ]
 
 Input file to slice.
 
 Type:     str
 
-### [ -o, --out <directory_path> ]
+### [ -o, --out &lt;directory_path&gt; ]
 
 Output directory for result.
 
@@ -63,7 +63,7 @@ Default:  same as source
 
 Type:     str
 
-### [ -e, --extension <file_extesion> ]
+### [ -e, --extension &lt;file_extesion&gt; ]
 
 Set result files extension.
 
@@ -71,7 +71,7 @@ Default:  same as source
 
 Type:     str
 
-### [ -w, --width <tile_width> ]
+### [ -w, --width &lt;tile_width&gt; ]
 
 Set tile width.
 
@@ -79,7 +79,7 @@ Default:  256 pixels or same as height, if height is present.
 
 Type:     int
 
-### [ -h, --height <tile_height> ]
+### [ -h, --height &lt;tile_height&gt; ]
 
 Set tile height
 
@@ -87,7 +87,7 @@ Default:  256 pixels or same as width, if width is present.
 
 Type:     int
 
-### [ -s, --step <zoom_step_value> ]
+### [ -s, --step &lt;zoom_step_value&gt; ]
 
 Zoom step value. Formula:
 
@@ -111,7 +111,7 @@ Specifies additional imagemagick options for 'convert'.
 
 Type:     str
 
-### [ -g, --gravity <type> ]
+### [ -g, --gravity &lt;type&gt; ]
 
 Types: `NorthWest North NorthEast West Center East SouthWest South SouthEast`
 
