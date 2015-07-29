@@ -4,20 +4,23 @@
 
 DZI and custom map tiles generator.
 
-## Usage:
+## Dependencies
+* [ImageMagick](http://www.imagemagick.org/script/index.php) - convert, identify
+* Bash
 
+## OS support
+* Linux
+* OSX
+
+## Viewers supprot
+* [OpenSeadragon](https://github.com/openseadragon/openseadragon)
+
+## Usage
     magick-slicer.sh [options] [-i] /source/image [[-o] result/dir]
     magick-slicer.sh /source/image [options] [result/dir]
     magick-slicer.sh /source/image [result/dir] [options]
 
-## Dependencies:
-* [ImageMagick](http://www.imagemagick.org/script/index.php) - convert, identify
-
-## OS support:
-* Linux
-* OSX
-
-Use quotes for path or options with spaces. First unknown string interpreting as source image, if it not defined. Second unknown string is interpreting as result path, if it not defined. Also, for source and result you can use options '-i' and '-o'.
+Use quotes for path or options with spaces. First unknown string interpreting as source image, if it not defined. Second unknown string is interpreting as result path, if it not defined. Also, for source and result you can use options '-i' and '-o'. As result you will get sliced image in default format (basic DZI).
 
 ---
 
@@ -37,7 +40,7 @@ Type:     str
 
 ---
 
-## Options list:
+## Options list
 
 ### [ -v, --verbose <level> ]
 
