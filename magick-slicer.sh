@@ -32,6 +32,7 @@ imageH=''
 imOptions=''
 dziFormat=true
 verboseLevel=0
+overlap=0   # TODO: Overlap handling.
 # ———————————————————————————————————————————————————————————————————————————————————
 # ####### Verbose functions ####### #
 # (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)
@@ -669,8 +670,8 @@ zoomImage(){ # zoom size -> file_path
     local zoom=$1
     local size=$2
     local dir="${resultDir}/${zoom}"
-    # local file="${dir}.${resultExt}"
-    local file="${dir}.png"
+    local file="${dir}.${resultExt}"
+    # local file="${dir}.png"
     # local size=`scaleToPercents $s`
     mkdir -p $dir   # Imagemagick can't create directories
     convert $imageSource $resizeFilter -resize $size $file
