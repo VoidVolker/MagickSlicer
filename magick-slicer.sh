@@ -618,12 +618,23 @@ getZoomLevels(){ # imgLen(pixels) tileLen(pixels) step(int) # Calculate zoom lev
     local zoomStep=$3
     local r=(0)
     local cnt=1
-    while [ "$imgLen" -gt "$tileLen" ]
+
+    # Drop zooms less tile size
+    # while [ "$imgLen" -gt "$tileLen" ]
+    # do
+    #     r[$cnt]=$imgLen
+    #     let "cnt+=1"
+    #     let "imgLen = imgLen * 100 / zoomStep"
+    # done
+
+    # Do all zooms down to 1x1 px
+    while [ "$imgLen" -gt 1 ]
     do
         r[$cnt]=$imgLen
         let "cnt+=1"
         let "imgLen = imgLen * 100 / zoomStep"
     done
+
     r[$cnt]=$imgLen
     r[0]=$cnt
     echo ${r[*]}
@@ -717,6 +728,7 @@ sliceA(){
     local hMod=''
     local s=1
     local file=''
+
     if [ "$zw" -ge "$zh" ]
     then
         zoomMax=$zw
@@ -744,6 +756,7 @@ sliceA(){
         infoMsg "     File resized: ${file}"
         infoMsg "     Slicing file..."
         sliceImage $s $file
+        rm -rf $file
 
         # scalep=`scaleToPercents $scale`
         # s=${scales[zoom-1]}
