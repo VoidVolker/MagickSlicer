@@ -1,6 +1,6 @@
 #!/bin/bash
-version="0.002"
-date="28/07/2015"
+version="0.003"
+date="31/07/2015"
 
 # ####### Options ####### #
 # resultExt='png'
