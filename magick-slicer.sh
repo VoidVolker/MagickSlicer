@@ -301,6 +301,18 @@ vHelp(){
     fi
 }
 
+lHelp(){
+    echo "    [ -l, --overlap <pixels> ] "
+    if [ "$1" = true ]
+    then
+        echo "        Tiles overlap in pixels."
+        echo
+        echo "        Default:  1"
+        echo "        Type:     int"
+        echo
+    fi
+}
+
 uHelp(){
     echo "    Usage:"
     echo "        magick-slicer.sh -u|--usage"
@@ -327,6 +339,7 @@ cliHelp(){
         -w|--width)             wHelp true ;;
         -h|--height)            hHelp true ;;
         -s|--step)              sHelp true ;;
+        -l|--overlap)           lHelp true ;;
         -p|--options)           pHelp true ;;
         -g|--gravity)           gHelp true ;;
         -x|--extent)            xHelp true ;;
@@ -353,6 +366,7 @@ cliHelp(){
             wHelp $2
             hHelp $2
             sHelp $2
+            lHelp $2
             pHelp $2
             gHelp $2
             xHelp $2
@@ -437,6 +451,11 @@ do
 
         -s|--step)
             step="$2"
+            shift # past argument
+        ;;
+
+        -l|--overlap)
+            overlap="$2"
             shift # past argument
         ;;
 
@@ -558,7 +577,7 @@ fi
 # Set extension
 fullName=$(basename "$imageSource")
 fileBase="${fullName%.*}"
-fileExt="${fullName%.*}"
+fileExt="${fullName##*.}"
 
 if $ExtNotDefined
 then
