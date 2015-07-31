@@ -339,7 +339,7 @@ cliHelp(){
         -w|--width)             wHelp true ;;
         -h|--height)            hHelp true ;;
         -s|--step)              sHelp true ;;
-        -l|--overlap)           lHelp true ;;
+        # -l|--overlap)           lHelp true ;;
         -p|--options)           pHelp true ;;
         -g|--gravity)           gHelp true ;;
         -x|--extent)            xHelp true ;;
@@ -366,7 +366,7 @@ cliHelp(){
             wHelp $2
             hHelp $2
             sHelp $2
-            lHelp $2
+            # lHelp $2
             pHelp $2
             gHelp $2
             xHelp $2
