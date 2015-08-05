@@ -22,6 +22,30 @@ DZI and custom map tiles generator.
 
 Use quotes for path or options with spaces. First unknown string interpreting as source image, if it not defined. Second unknown string is interpreting as result path, if it not defined. Also, for source and result you can use options `-i` and `-o`. As result you will get sliced image in default format (basic DZI).
 
+Example:
+
+    ./magick-slicer.sh foo.jpg
+
+Result:
+
+```
+    [file]  foo.dzi
+    [dir]   foo_files
+    [dir]       0
+    [file]          0_0.jpg (1x1px)
+                ...
+                8
+                    0_0.jpg (256x256px)
+                ...
+                9
+                    0_0.jpg
+                    0_1.jpg
+                    1_0.jpg
+                    1_1.jpg
+                    ...
+                    x_y.jpg
+                N
+```
 ---
 
 ## Help options
