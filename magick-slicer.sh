@@ -8,6 +8,7 @@ resultExt=''
 resizeFilter='' # http://www.imagemagick.org/Usage/filter/
 # resultDir='./sliceResult'
 resultDir=''
+
 # Selector fo slicer: A or B
 scaleFromImage=true     # Type of scaling: if true - scale calculates from image size to down (slicer A), if false - image scale starts from tile size and grow up (slicer B)
 gravity='NorthWest'     # Image positioning (from this option depends, which tiles sides can be cropped, if it not full size). Choices include: 'NorthWest', 'North', 'NorthEast', 'West', 'Center', 'East', 'SouthWest', 'South', 'SouthEast'. Use -list gravity to get a complete list of -gravity settings available in your ImageMagick installation.
