@@ -1,6 +1,6 @@
 #!/bin/bash
-version="0.002"
-date="28/07/2015"
+version="0.004"
+date="05/08/2015"
 
 # ####### Options ####### #
 # resultExt='png'
@@ -301,6 +301,18 @@ vHelp(){
     fi
 }
 
+lHelp(){
+    echo "    [ -l, --overlap <pixels> ] "
+    if [ "$1" = true ]
+    then
+        echo "        Tiles overlap in pixels."
+        echo
+        echo "        Default:  1"
+        echo "        Type:     int"
+        echo
+    fi
+}
+
 uHelp(){
     echo "    Usage:"
     echo "        magick-slicer.sh -u|--usage"
@@ -327,6 +339,7 @@ cliHelp(){
         -w|--width)             wHelp true ;;
         -h|--height)            hHelp true ;;
         -s|--step)              sHelp true ;;
+        # -l|--overlap)           lHelp true ;;
         -p|--options)           pHelp true ;;
         -g|--gravity)           gHelp true ;;
         -x|--extent)            xHelp true ;;
@@ -353,6 +366,7 @@ cliHelp(){
             wHelp $2
             hHelp $2
             sHelp $2
+            # lHelp $2
             pHelp $2
             gHelp $2
             xHelp $2
@@ -437,6 +451,11 @@ do
 
         -s|--step)
             step="$2"
+            shift # past argument
+        ;;
+
+        -l|--overlap)
+            overlap="$2"
             shift # past argument
         ;;
 
@@ -558,7 +577,7 @@ fi
 # Set extension
 fullName=$(basename "$imageSource")
 fileBase="${fullName%.*}"
-fileExt="${fullName%.*}"
+fileExt="${fullName##*.}"
 
 if $ExtNotDefined
 then
@@ -718,7 +737,7 @@ sliceImage(){ # zoom image
 }
 
 sliceA(){
-    infoMsg " Slicer A is running..."
+    infoMsg " Slicer A is running..."
     local scalesW=( `getZoomLevels $imageW $tileW $step` )
     local scalesH=( `getZoomLevels $imageH $tileH $step` )
     local zw=${scalesW[0]}
@@ -727,7 +746,7 @@ sliceA(){
     local zoomMax=0
     local zoom=0
     local hMod=''
-    local s=1
+    local s=0
     local file=''
 
     if [ "$zw" -ge "$zh" ]
@@ -743,19 +762,19 @@ sliceA(){
 
     # local scale=$scaleStart
     # local scalep=''
-    while [ "$s" -le "$zoomMax" ]
+    while [ "$s" -lt "$zoomMax" ]
     do
         if $zoomReverse
         then
             let "zoom = s"
         else
-            let "zoom = zoomMax - s + 1"
+            let "zoom = zoomMax - s"
         fi
 
-        infoMsg "     Resizing next file..."
+        infoMsg "     Resizing next file..."
         file=`zoomImage $s "${hMod}${scales[$zoom]}"`
-        infoMsg "     File resized: ${file}"
-        infoMsg "     Slicing file..."
+        infoMsg "     File resized: ${file}"
+        infoMsg "     Slicing file..."
         sliceImage $s $file
         rm -rf $file
 
@@ -771,7 +790,7 @@ sliceA(){
         let "s+=1"
     done
 
-    infoMsg " Slicer A complete"
+    infoMsg " Slicer A complete"
 
     # s=`nextScale $scaleStart`
     # s=`nextScale $s`
