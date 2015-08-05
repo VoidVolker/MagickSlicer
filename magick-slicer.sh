@@ -737,7 +737,7 @@ sliceImage(){ # zoom image
 }
 
 sliceA(){
-    infoMsg " Slicer A is running..."
+    infoMsg " Slicer A is running..."
     local scalesW=( `getZoomLevels $imageW $tileW $step` )
     local scalesH=( `getZoomLevels $imageH $tileH $step` )
     local zw=${scalesW[0]}
@@ -746,7 +746,7 @@ sliceA(){
     local zoomMax=0
     local zoom=0
     local hMod=''
-    local s=1
+    local s=0
     local file=''
 
     if [ "$zw" -ge "$zh" ]
@@ -762,19 +762,19 @@ sliceA(){
 
     # local scale=$scaleStart
     # local scalep=''
-    while [ "$s" -le "$zoomMax" ]
+    while [ "$s" -lt "$zoomMax" ]
     do
         if $zoomReverse
         then
             let "zoom = s"
         else
-            let "zoom = zoomMax - s + 1"
+            let "zoom = zoomMax - s"
         fi
 
-        infoMsg "     Resizing next file..."
+        infoMsg "     Resizing next file..."
         file=`zoomImage $s "${hMod}${scales[$zoom]}"`
-        infoMsg "     File resized: ${file}"
-        infoMsg "     Slicing file..."
+        infoMsg "     File resized: ${file}"
+        infoMsg "     Slicing file..."
         sliceImage $s $file
         rm -rf $file
 
@@ -790,7 +790,7 @@ sliceA(){
         let "s+=1"
     done
 
-    infoMsg " Slicer A complete"
+    infoMsg " Slicer A complete"
 
     # s=`nextScale $scaleStart`
     # s=`nextScale $s`
