@@ -29,22 +29,22 @@ Example:
 Result:
 
 ```
-    [file]  foo.dzi
-    [dir]   foo_files
-    [dir]       0
-    [file]          0_0.jpg (1x1px)
+[file]  foo.dzi
+[dir]   foo_files
+[dir]       0
+[file]          0_0.jpg (1x1px)
+            ...
+            8
+                0_0.jpg (256x256px)
+            ...
+            9
+            0_0.jpg
+                0_1.jpg
+                1_0.jpg
+                1_1.jpg
                 ...
-                8
-                    0_0.jpg (256x256px)
-                ...
-                9
-                    0_0.jpg
-                    0_1.jpg
-                    1_0.jpg
-                    1_1.jpg
-                    ...
-                    x_y.jpg
-                N
+                x_y.jpg
+            N
 ```
 ---
 
