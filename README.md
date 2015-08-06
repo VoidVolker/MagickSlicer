@@ -22,11 +22,11 @@ DZI and custom map tiles generator.
 
 Use quotes for path or options with spaces. First unknown string interpreting as source image, if it not defined. Second unknown string is interpreting as result path, if it not defined. Also, for source and result you can use options `-i` and `-o`. As result you will get sliced image in default format (basic DZI).
 
-Example:
+### Example:
 
     ./magick-slicer.sh foo.jpg
 
-Result:
+#### Result:
 
 ```
 [file]  foo.dzi
@@ -59,6 +59,48 @@ Result:
                 0_0.jpg
                 ...
                 x_y.jpg
+```
+
+#### Example OSD render:
+
+```
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="openseadragon.min.js"></script>
+    <style>
+        BODY {
+            padding: 0;
+            margin: 0;
+            border: 0;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #434343;
+            border: solid 3px rgba(255,255,255,0.34);
+            overflow: hidden;
+            position: absolute;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: 1 !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script type="text/javascript">
+        map = OpenSeadragon({
+            id: 'map'
+            , prefixUrl: 'images/'
+            , tileSources: 'test.dzi'
+        });
+    </script>
+</body>
+</html>
 ```
 ---
 
