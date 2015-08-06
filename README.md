@@ -121,7 +121,7 @@ User-selected verbosity levels:
 - 0 = none
 - 1 = warnings
 - 2 = warnings + info
-- 3 = warning + info + debug
+- 3 = warnings + info + debug
 
 ### [ -v0, -v1, -v2, -v3 ]
 

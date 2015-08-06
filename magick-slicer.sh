@@ -297,7 +297,7 @@ vHelp(){
         echo "          - 0 = none"
         echo "          - 1 = warnings"
         echo "          - 2 = warnings + info"
-        echo "          - 3 = warning + info + debug"
+        echo "          - 3 = warnings + info + debug"
         echo
     fi
     echo "    [ -v0, -v1, -v2, -v3 ]"
