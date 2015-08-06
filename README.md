@@ -119,7 +119,11 @@ Show full help for all options.
 
 ### [ -v, --verbose &lt;level&gt; ]
 
-User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)
+User-selected verbosity levels:
+- 0 = none
+- 1 = warnings
+- 2 = warnings + info
+- 3 = warning + info + debug
 
 ### [ -v0, -v1, -v2, -v3 ]
 

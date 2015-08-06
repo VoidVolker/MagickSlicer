@@ -293,7 +293,11 @@ vHelp(){
     echo "    [ -v, --verbose <level> ]"
     if [ "$1" = true ]
     then
-        echo "        User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)"
+        echo "        User-selected verbosity levels:"
+        echo "          - 0 = none"
+        echo "          - 1 = warnings"
+        echo "          - 2 = warnings + info"
+        echo "          - 3 = warning + info + debug"
         echo
     fi
     echo "    [ -v0, -v1, -v2, -v3 ]"
