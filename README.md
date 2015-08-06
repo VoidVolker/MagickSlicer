@@ -28,7 +28,7 @@ Use quotes for path or options with spaces. First unknown string interpreting as
 
 Result:
 
-```html
+```HTML
 [file]  foo.dzi
 [dir]   foo_files
 [dir]       0
