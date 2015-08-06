@@ -120,7 +120,10 @@ Show full help for all options.
 ### [ -v, --verbose &lt;level&gt; ]
 
 User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)
-Also, exists short commands for each level: -v0 -v1 -v2 -v3
+
+### [ -v0, -v1, -v2, -v3 ]
+
+Short commands for each verbosity level.
 
 Default:  0
 

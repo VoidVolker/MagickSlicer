@@ -290,11 +290,16 @@ tHelp(){
 }
 
 vHelp(){
-    echo "    [ -v, --verbose <level> ] "
+    echo "    [ -v, --verbose <level> ]"
     if [ "$1" = true ]
     then
         echo "        User-selected verbosity levels (0=none, 1=warnings, 2=warnings+info, 3=warning+info+debug)"
-        echo "        Also, exists short commands for each level: -v0 -v1 -v2 -v3"
+        echo
+    fi
+    echo "    [ -v0, -v1, -v2, -v3 ]"
+    if [ "$1" = true ]
+    then
+        echo "        Short commands for each verbosity level."
         echo
         echo "        Default:  0"
         echo "        Type:     logic switch"
