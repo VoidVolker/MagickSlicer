@@ -33,6 +33,12 @@ Result:
 [dir]   foo_files
 [dir]       0
 [file]          0_0.jpg (1x1px)
+            1
+                0_0.jpg (1x1)
+            2
+                0_0.jpg (2x2)
+            3
+                0_0.jpg (4x4)
             ...
 
             8
