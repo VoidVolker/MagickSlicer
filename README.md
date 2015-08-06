@@ -46,7 +46,6 @@ Result:
             9
                 0_0.jpg (256x256)
                 x_y.jpg (WxH)      W<=256, H<=256
-            ...
             10
                 0_0.jpg
                 0_1.jpg
