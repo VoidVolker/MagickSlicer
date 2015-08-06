@@ -75,8 +75,6 @@ Example OSD render:
             top: 0;
             right: 0;
             bottom: 0;
-            background-color: #434343;
-            border: solid 3px rgba(255,255,255,0.34);
             overflow: hidden;
             position: absolute;
         }
@@ -85,14 +83,13 @@ Example OSD render:
             width: 100%;
             height: 100%;
             background-color: #434343;
-            z-index: 1 !important;
         }
     </style>
 </head>
 <body>
     <div id="map"></div>
     <script type="text/javascript">
-        map = OpenSeadragon({
+        OpenSeadragon({
             id: 'map'
             , prefixUrl: 'images/'
             , tileSources: 'foo.dzi'
