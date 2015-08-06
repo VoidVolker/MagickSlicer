@@ -96,7 +96,7 @@ Example OSD render:
         map = OpenSeadragon({
             id: 'map'
             , prefixUrl: 'images/'
-            , tileSources: 'test.dzi'
+            , tileSources: 'foo.dzi'
         });
     </script>
 </body>
