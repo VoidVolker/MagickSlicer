@@ -26,9 +26,9 @@ Use quotes for path or options with spaces. First unknown string interpreting as
 
     ./magick-slicer.sh foo.jpg
 
-#### Result:
+Result:
 
-```
+```html
 [file]  foo.dzi
 [dir]   foo_files
 [dir]       0
@@ -61,7 +61,7 @@ Use quotes for path or options with spaces. First unknown string interpreting as
                 x_y.jpg
 ```
 
-#### Example OSD render:
+Example OSD render:
 
 ```
 <!DOCTYPE html><html><head>
