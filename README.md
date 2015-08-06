@@ -70,7 +70,6 @@ Example OSD render:
         BODY {
             padding: 0;
             margin: 0;
-            border: 0;
             left: 0;
             top: 0;
             right: 0;
@@ -78,7 +77,6 @@ Example OSD render:
             overflow: hidden;
             position: absolute;
         }
-
         #map {
             width: 100%;
             height: 100%;
