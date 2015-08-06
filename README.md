@@ -34,16 +34,22 @@ Result:
 [dir]       0
 [file]          0_0.jpg (1x1px)
             ...
-            7
-                0_0.jpg (256x256px)
-            ...
+
             8
+                0_0.jpg (WxH) | (WxHpx) W<128, H<128
+            9
+                0_0.jpg (256x256)
+                x_y.jpg (WxH)      W<256, H<256
+            ...
+            10
                 0_0.jpg
                 0_1.jpg
                 1_0.jpg
                 1_1.jpg
+                ...
+                x_y.jpg
             ...
-            N
+            N (max zoom level)
                 0_0.jpg
                 ...
                 x_y.jpg
@@ -166,7 +172,7 @@ Type:     logic switch
 
 ### [ -a, --slicea ]
 
-Type of slicing - slice A. Image scale starts from image size to down. Inverts option `--scliceb`.
+Type of slicing - slice A. Image scale starts from image size to down. Inverts option `--sliceb`.
 
 Default:  true
 

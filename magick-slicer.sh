@@ -215,7 +215,7 @@ aHelp(){
     echo "    [ -a, --slicea ]"
     if [ "$1" = true ]
     then
-        echo "        Type of slicing - slice A. Image scale starts from image size to down. Inverts option '--scliceb'."
+        echo "        Type of slicing - slice A. Image scale starts from image size to down. Inverts option '--sliceb'."
         echo
         echo "        Default:  true"
         echo "        Type:     logic switch"
@@ -649,7 +649,7 @@ getZoomLevels(){ # imgLen(pixels) tileLen(pixels) step(int) # Calculate zoom lev
     # done
 
     # Do all zooms down to 1x1 px
-    while [ "$imgLen" -gt 1 ]
+    while [ "$imgLen" -ge 1 ]
     do
         r[$cnt]=$imgLen
         let "cnt+=1"
@@ -739,11 +739,11 @@ sliceImage(){ # zoom image
 
 sliceA(){
     infoMsg " Slicer A is running..."
-    local scalesW=( `getZoomLevels $imageW $tileW $step` )
-    local scalesH=( `getZoomLevels $imageH $tileH $step` )
-    local zw=${scalesW[0]}
-    local zh=${scalesH[0]}
-    local scales=()
+    local scalesW=( `getZoomLevels $imageW $tileW $step` )  # Get width  for each zoom level
+    local scalesH=( `getZoomLevels $imageH $tileH $step` )  # Get height for each zoom level
+    local zw=${scalesW[0]}  # Get zoom level for width
+    local zh=${scalesH[0]}  # Get zoom level for height
+    local scales=()         # Creating empty array
     local zoomMax=0
     local zoom=0
     local hMod=''
@@ -772,12 +772,13 @@ sliceA(){
             let "zoom = zoomMax - s"
         fi
 
-        infoMsg "     Resizing next file..."
+        infoMsg "    Resizing next file..."
+        debugMsg "    zoomMax=$zoomMax, zoomLevel=$s, wxhInex=$zoom, wxh=${hMod}${scales[$zoom]}"
         file=`zoomImage $s "${hMod}${scales[$zoom]}"`
-        infoMsg "     File resized: ${file}"
-        infoMsg "     Slicing file..."
+        infoMsg "    File resized: ${file}"
+        infoMsg "    Slicing file..."
         sliceImage $s $file
-        rm -rf $file
+        # rm -rf $file
 
         # scalep=`scaleToPercents $scale`
         # s=${scales[zoom-1]}
