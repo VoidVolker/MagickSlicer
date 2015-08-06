@@ -778,7 +778,7 @@ sliceA(){
         infoMsg "    File resized: ${file}"
         infoMsg "    Slicing file..."
         sliceImage $s $file
-        # rm -rf $file
+        rm -rf $file
 
         # scalep=`scaleToPercents $scale`
         # s=${scales[zoom-1]}
