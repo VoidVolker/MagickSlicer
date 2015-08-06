@@ -84,7 +84,7 @@ Example OSD render:
         #map {
             width: 100%;
             height: 100%;
-            background-color: white;
+            background-color: #434343;
             z-index: 1 !important;
         }
     </style>
@@ -101,6 +101,7 @@ Example OSD render:
 </body>
 </html>
 ```
+
 ---
 
 ## Help options
