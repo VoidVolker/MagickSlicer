@@ -36,10 +36,10 @@ Result:
             ...
 
             8
-                0_0.jpg (WxH) | (WxHpx) W<128, H<128
+                0_0.jpg (WxH)      W<=256, H<=256
             9
                 0_0.jpg (256x256)
-                x_y.jpg (WxH)      W<256, H<256
+                x_y.jpg (WxH)      W<=256, H<=256
             ...
             10
                 0_0.jpg
