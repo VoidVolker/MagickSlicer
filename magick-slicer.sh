@@ -703,7 +703,7 @@ zoomImage(){ # zoom size -> file_path
     # local file="${dir}.png"
     # local size=`scaleToPercents $s`
     mkdir -p $dir   # Imagemagick can't create directories
-    convert $imageSource $resizeFilter -resize $size $file
+    convert $imageSource $resizeFilter -resize $size $imOptions $file
     echo $file
 }
 
@@ -834,7 +834,7 @@ resizeImageH(){ # zoom -> file_path
     local file="${dir}.${resultExt}"
     local size=`zoomPixels $zoom $tileW`
     mkdir -p $dir   # Imagemagick can't create directories
-    convert $imageSource $resizeFilter -resize $size $file
+    convert $imageSource $resizeFilter -resize $size $imOptions $file
     echo $file
 }
 
@@ -844,7 +844,7 @@ resizeImageV(){ # zoom -> file_path
     local file="${dir}.${resultExt}"
     local size=`zoomPixels $zoom $tileH`
     mkdir -p $dir   # Imagemagick can't create directories
-    convert $imageSource $resizeFilter -resize "x${size}" $file
+    convert $imageSource $resizeFilter -resize "x${size}" $imOptions $file
     echo $file
 }
 
