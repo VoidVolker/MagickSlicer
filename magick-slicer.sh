@@ -816,7 +816,7 @@ debugMsg "Section: Slicer B"
 zoomPixels(){ # zoom tileSize
     local zoom=$1
     local pixels=$2
-    if [ "zoom" -ne 0 ]
+    if [ "$zoom" -ne 0 ]
     then
         let "pixels = pixels * 100"
         for(( i=0; i<zoom; i++ ))
