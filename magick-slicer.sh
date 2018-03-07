@@ -484,7 +484,8 @@ do
         ;;
 
         -d|--dzi)
-            dziFormat=true
+            dziFormat="$2"
+            shift # past argument
         ;;
 
         -a|--slicea)
@@ -721,7 +722,7 @@ sliceImage(){ # zoom image
     local tilesFormat="%[fx:page.x/${tileW}]${xyDelim}%[fx:page.y/${tileH}]" # This very important magic! It allow imagemagick to generate tile names with it position and place it in corect folders (but folders need to generate manually)
     local file="${resultDir}/${zoom}/%[filename:tile].${resultExt}"
 
-    if [ ! $dziFormat ]
+    if [ "$dziFormat" = false ]
     then
         # Creating subdirectories for tiles (one vertical line of tiles is in one folder)
         local srcSize=`getImgW $src`            # Getting image width
