@@ -862,6 +862,7 @@ sliceB(){
     local size=0
     local sizeMax=0
     local zoom=0
+    local file=''
 
     if $horizontal
     then
@@ -881,7 +882,9 @@ sliceB(){
     while [ "$px" -lt "$sizeMax" ]
     do
         echo "    Slicing zoom level \"${zoom}\"; image main size is \"${px}\""
-        sliceImage $zoom `resizeImage $zoom`
+        file=`resizeImage $zoom`
+        sliceImage $zoom $file
+        rm -rf $file
         let "zoom++"
         px=`zoomPixels $zoom $size`
     done
